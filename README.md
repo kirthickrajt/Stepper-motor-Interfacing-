@@ -26,11 +26,58 @@ Step13:Click start button and check the output
 
 ## THEORY:
 
+In this section, we will see how to connect a stepper motor with Intel 8051 Microcontroller. Before discussing the interfacing techniques, we will see what are the stepper motors and how they work.
+
+Stepper Motor Stepper motors are used to translate electrical pulses into mechanical movements. In some disk drives, dot matrix printers, and some other different places the stepper motors are used. The main advantage of using the stepper motor is the position control. Stepper motors generally have a permanent magnet shaft (rotor), and it is surrounded by a stator.
+
+
+![image](https://github.com/kirthickrajt/Stepper-motor-Interfacing-/assets/132205850/573d9458-ab25-4650-8f57-962b6b954e09)
+
+
+Normal motor shafts can move freely but the stepper motor shafts move in fixed repeatable increments.
+
+Some parameters of stepper motors − Step Angle − The step angle is the angle in which the rotor moves when one pulse is applied as an input of the stator. This parameter is used to determine the positioning of a stepper motor.
+
+Steps per Revolution − This is the number of step angles required for a complete revolution. So the formula is 360° /Step Angle.
+
+Steps per Second − This parameter is used to measure a number of steps covered in each second.
+
+RPM − The RPM is the Revolution Per Minute. It measures the frequency of rotation. By this parameter, we can measure the number of rotations in one minute.
 ## PROGRAM:
+
+#include <Stepper.h>
+const int stepsPerRevolution = 200; // change this to fit the number of steps per revolution
+// for your motor
+
+// initialize the stepper library on pins 8 through 11:
+Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+
+void setup() { </br>
+// set the speed at 60 rpm: </br>
+myStepper.setSpeed(60); </br>
+// initialize the serial port: </br>
+Serial.begin(9600); </br>
+} </br>
+
+void loop() { </br>
+// step one revolution in one direction: </br>
+Serial.println("clockwise"); </br>
+myStepper.step(stepsPerRevolution); </br>
+delay(500); </br>
+
+// step one revolution in the other direction: </br>
+Serial.println("counterclockwise"); </br>
+myStepper.step(-stepsPerRevolution); </br>
+delay(500); </br>
+} </br>
 
 ## CIRCUIT DIAGRAM:
 
+![image](https://github.com/kirthickrajt/Stepper-motor-Interfacing-/assets/132205850/c902907f-fe3c-4339-877c-0d57b5693509)
+
 ## OUTPUT:
+
+![image](https://github.com/kirthickrajt/Stepper-motor-Interfacing-/assets/132205850/585e5783-4280-4a1c-93d2-13da95b8471e)
 
 ## RESULT:
 Thus the speed and direction of the stepper motor was controlled using Arduino UNO controller.
