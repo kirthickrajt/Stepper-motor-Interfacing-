@@ -43,14 +43,15 @@ Steps per Revolution − This is the number of step angles required for a comple
 Steps per Second − This parameter is used to measure a number of steps covered in each second.
 
 RPM − The RPM is the Revolution Per Minute. It measures the frequency of rotation. By this parameter, we can measure the number of rotations in one minute.
+
 ## PROGRAM:
 
-#include <Stepper.h>
+#include <Stepper.h> </br>
 const int stepsPerRevolution = 200; // change this to fit the number of steps per revolution
-// for your motor
+// for your motor </br>
 
-// initialize the stepper library on pins 8 through 11:
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+// initialize the stepper library on pins 8 through 11:</br>
+Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);</br>
 
 void setup() { </br>
 // set the speed at 60 rpm: </br>
